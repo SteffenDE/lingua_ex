@@ -1,7 +1,15 @@
 defmodule Lingua.Nif do
   @moduledoc false
 
-  use Rustler, otp_app: :lingua, crate: "lingua_nif"
+  version = Mix.Project.config()[:version]
+
+  use RustlerPrecompiled,
+    otp_app: :lingua,
+    crate: "lingua_nif",
+    base_url:
+      "https://github.com/SteffenDE/lingua_ex/releases/download/v#{version}",
+    force_build: System.get_env("RUSTLER_PRECOMPILATION_EXAMPLE_BUILD") in ["1", "true"],
+    version: version
 
   def init(), do: error()
 

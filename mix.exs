@@ -1,10 +1,12 @@
 defmodule Lingua.MixProject do
   use Mix.Project
 
+  @version "0.2.0"
+
   def project do
     [
       app: :lingua,
-      version: "0.1.3",
+      version: @version,
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       description: description(),
@@ -30,7 +32,8 @@ defmodule Lingua.MixProject do
         "README.md",
         "LICENSE",
         "native/lingua_nif/Cargo.*",
-        "native/lingua_nif/src"
+        "native/lingua_nif/src",
+        "checksum-*.exs"
       ]
     ]
   end
@@ -43,7 +46,8 @@ defmodule Lingua.MixProject do
 
   defp deps do
     [
-      {:rustler, "~> 0.29.1"},
+      {:rustler_precompiled, "~> 0.6.2"},
+      {:rustler, "~> 0.29.1", optional: true},
       {:credo, "~> 1.5.5", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.14.0", only: :test},
       {:ex_doc, "~> 0.24", only: :dev, runtime: false}
