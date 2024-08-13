@@ -8,7 +8,7 @@ defmodule Lingua.Nif do
     crate: "lingua_nif",
     base_url:
       "https://github.com/SteffenDE/lingua_ex/releases/download/v#{version}",
-    force_build: System.get_env("RUSTLER_PRECOMPILATION_EXAMPLE_BUILD") in ["1", "true"],
+    force_build: System.get_env("LINGUA_BUILD") in ["1", "true"],
     version: version
 
   def init(), do: error()
