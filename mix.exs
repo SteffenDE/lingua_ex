@@ -1,7 +1,7 @@
 defmodule Lingua.MixProject do
   use Mix.Project
 
-  @version "0.2.0"
+  @version "0.2.1"
 
   def project do
     [
@@ -49,8 +49,8 @@ defmodule Lingua.MixProject do
 
   defp deps do
     [
-      {:rustler_precompiled, "~> 0.6.2"},
-      {:rustler, "~> 0.29.1", optional: true},
+      {:rustler_precompiled, "~> 0.7.2"},
+      {:rustler, "~> 0.34.0", optional: true},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.16", only: :test},
       {:ex_doc, "~> 0.24", only: :dev, runtime: false}
